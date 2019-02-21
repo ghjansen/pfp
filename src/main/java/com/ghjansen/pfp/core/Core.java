@@ -7,16 +7,22 @@ import processing.core.PApplet;
 
 public class Core {
 
-    private Processing processing;
+    private PApplet processing;
 
     private StyleController sc;
     private BehaviorController bc;
     private ComponentController cc;
 
     public Core(PApplet applet){
-        this.processing = (Processing) applet;
+        this.processing = applet;
         this.sc = new StyleController();
         this.bc = new BehaviorController();
         this.cc = new ComponentController();
     }
+
+    public void drawTestForms(){
+        processing.line(0,0,50,50);
+        processing.rect(0,0,10,10);
+    }
+
 }
