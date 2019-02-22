@@ -3,21 +3,23 @@ package com.ghjansen.pfp.core;
 import com.ghjansen.pfp.control.BehaviorController;
 import com.ghjansen.pfp.control.ComponentController;
 import com.ghjansen.pfp.control.StyleController;
+import com.ghjansen.pfp.control.ThemeController;
 import processing.core.PApplet;
 
 public class Core {
 
     private PApplet processing;
-
-    private StyleController sc;
-    private BehaviorController bc;
+    private ThemeController tc;
     private ComponentController cc;
 
     public Core(PApplet applet){
         this.processing = applet;
-        this.sc = new StyleController();
-        this.bc = new BehaviorController();
-        this.cc = new ComponentController();
+        this.tc = new ThemeController();
+        this.cc = new ComponentController(tc);
+    }
+
+    public void draw(){
+
     }
 
     public void drawTestForms(){
