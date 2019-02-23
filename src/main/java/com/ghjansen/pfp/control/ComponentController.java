@@ -2,9 +2,9 @@ package com.ghjansen.pfp.control;
 
 public class ComponentController {
 
-    private ThemeController themeController;
+    private ProfileController profileController;
 
-    public ComponentController(ThemeController themeController){
-        this.themeController = themeController;
+    public ComponentController(ProfileController profileController){
+        this.profileController = profileController;
     }
 }

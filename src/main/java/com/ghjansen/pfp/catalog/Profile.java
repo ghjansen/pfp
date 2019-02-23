@@ -1,11 +1,11 @@
 package com.ghjansen.pfp.catalog;
 
-public abstract class Theme {
+public class Profile {
 
     private StyleCatalog styleCatalog;
     private BehaviorCatalog behaviorCatalog;
 
-    public Theme(StyleCatalog styleCatalog, BehaviorCatalog behaviorCatalog){
+    public Profile(StyleCatalog styleCatalog, BehaviorCatalog behaviorCatalog){
         this.styleCatalog = styleCatalog;
         this.behaviorCatalog = behaviorCatalog;
     }

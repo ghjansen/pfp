@@ -1,20 +1,28 @@
 package com.ghjansen.pfp.core;
 
-import com.ghjansen.pfp.control.BehaviorController;
+import com.ghjansen.pfp.catalog.BehaviorCatalog;
+import com.ghjansen.pfp.catalog.Profile;
+import com.ghjansen.pfp.catalog.StyleCatalog;
 import com.ghjansen.pfp.control.ComponentController;
-import com.ghjansen.pfp.control.StyleController;
-import com.ghjansen.pfp.control.ThemeController;
+import com.ghjansen.pfp.control.ProfileController;
 import processing.core.PApplet;
 
 public class Core {
 
     private PApplet processing;
-    private ThemeController tc;
+    private ProfileController tc;
     private ComponentController cc;
 
     public Core(PApplet applet){
         this.processing = applet;
-        this.tc = new ThemeController();
+
+        //default block
+        //TODO constructors that allow implementations other than default
+        StyleCatalog defaultStyleCatalog = new StyleCatalog();
+        BehaviorCatalog defaultBehaviorCatalog = new BehaviorCatalog();
+        Profile defaultProfile = new Profile(defaultStyleCatalog, defaultBehaviorCatalog);
+
+        this.tc = new ProfileController(defaultProfile);
         this.cc = new ComponentController(tc);
     }
 
