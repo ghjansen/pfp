@@ -1,4 +1,5 @@
 package com.ghjansen.pfp.catalog;
 
-public class ComponentCatalog {
+public abstract class ComponentCatalog extends Catalog {
+
 }

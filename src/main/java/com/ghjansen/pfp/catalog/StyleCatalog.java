@@ -1,4 +1,4 @@
 package com.ghjansen.pfp.catalog;
 
-public class StyleCatalog {
+public abstract class StyleCatalog extends Catalog {
 }

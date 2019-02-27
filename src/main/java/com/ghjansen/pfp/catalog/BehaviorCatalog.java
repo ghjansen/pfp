@@ -1,4 +1,5 @@
 package com.ghjansen.pfp.catalog;
 
-public class BehaviorCatalog {
+public abstract class BehaviorCatalog extends Catalog {
+
 }

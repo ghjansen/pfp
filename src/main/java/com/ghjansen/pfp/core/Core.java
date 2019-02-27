@@ -9,7 +9,7 @@ import processing.core.PApplet;
 
 public class Core {
 
-    private PApplet processing;
+    private static PApplet processing;
     private ProfileController tc;
     private ComponentController cc;
 
@@ -18,12 +18,12 @@ public class Core {
 
         //default block
         //TODO constructors that allow implementations other than default
-        StyleCatalog defaultStyleCatalog = new StyleCatalog();
-        BehaviorCatalog defaultBehaviorCatalog = new BehaviorCatalog();
-        Profile defaultProfile = new Profile(defaultStyleCatalog, defaultBehaviorCatalog);
+        //StyleCatalog defaultStyleCatalog = new StyleCatalog();
+        //BehaviorCatalog defaultBehaviorCatalog = new BehaviorCatalog();
+        //Profile defaultProfile = new Profile(defaultStyleCatalog, defaultBehaviorCatalog);
 
-        this.tc = new ProfileController(defaultProfile);
-        this.cc = new ComponentController(tc);
+        //this.tc = new ProfileController(defaultProfile);
+        //this.cc = new ComponentController(tc);
     }
 
     public void draw(){
@@ -33,6 +33,10 @@ public class Core {
     public void drawTestForms(){
         processing.line(0,0,50,50);
         processing.rect(0,0,10,10);
+    }
+
+    public static PApplet getProcessing(){
+        return processing;
     }
 
 }
