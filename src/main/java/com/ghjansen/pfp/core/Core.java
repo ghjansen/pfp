@@ -1,8 +1,5 @@
 package com.ghjansen.pfp.core;
 
-import com.ghjansen.pfp.catalog.BehaviorCatalog;
-import com.ghjansen.pfp.catalog.Profile;
-import com.ghjansen.pfp.catalog.StyleCatalog;
 import com.ghjansen.pfp.control.ComponentController;
 import com.ghjansen.pfp.control.ProfileController;
 import processing.core.PApplet;

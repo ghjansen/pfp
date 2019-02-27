@@ -1,10 +1,10 @@
 package com.ghjansen.pfp.component;
 
+import com.ghjansen.pfp.catalog.Element;
 import processing.core.PApplet;
 
-public abstract class Component {
+public abstract class Component extends Element {
 
-    private PApplet p;
     private Component parent;
     private Component child;
     private Point reference;

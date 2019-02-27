@@ -1,13 +1,14 @@
 package com.ghjansen.pfp.catalog;
 
-public abstract class Catalog<E extends Enum<E>> {
+public abstract class Catalog<T> {
 
-    protected E catalog;
+    protected T catalog;
 
-    public Catalog(){
-        this.catalog = create();
+    public Catalog(T catalog){
+        this.catalog = catalog;
+        createAndAddElements();
     }
 
-    protected abstract E create();
+    protected abstract void createAndAddElements();
 
 }
