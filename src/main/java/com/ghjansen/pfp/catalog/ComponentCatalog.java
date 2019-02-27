@@ -1,19 +1,17 @@
 package com.ghjansen.pfp.catalog;
 
-import java.util.HashMap;
+import com.ghjansen.pfp.component.Component;
 
-public abstract class ComponentCatalog extends Catalog {
+import java.util.ArrayList;
 
-    private int elementCounter;
-    private HashMap<Integer,Element> localReference;
+public abstract class ComponentCatalog extends Catalog<ArrayList<Element>> {
 
     public ComponentCatalog(){
-        super(new HashMap<Integer,Element>());
-        this.localReference = (HashMap<Integer,Element>) catalog;
+        super(new ArrayList<Element>());
     }
 
-    protected void add(Element element){
-        localReference.put(elementCounter++,element);
+    protected void add(Component component){
+        catalog.add(component);
     }
 
 }

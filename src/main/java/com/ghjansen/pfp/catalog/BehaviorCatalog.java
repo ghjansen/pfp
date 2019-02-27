@@ -4,20 +4,17 @@ import com.ghjansen.pfp.exception.DuplicateNameException;
 
 import java.util.HashMap;
 
-public abstract class BehaviorCatalog extends Catalog {
-
-    private HashMap<String,Element> localReference;
+public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
 
     public BehaviorCatalog() {
         super(new HashMap<String,Element>());
-        this.localReference = (HashMap<String,Element>) catalog;
     }
 
     protected void add(String name, Element element) throws DuplicateNameException{
-        if(localReference.containsKey(name)){
+        if(catalog.containsKey(name)){
             throw new DuplicateNameException();
         } else {
-            localReference.put(name, element);
+            catalog.put(name, element);
         }
     }
 }
