@@ -1,10 +1,10 @@
 package com.ghjansen.pfp.control;
-
+@Deprecated
 public class ComponentController {
 
-    private ProfileController profileController;
+    private PortfolioController portfolioController;
 
-    public ComponentController(ProfileController profileController){
-        this.profileController = profileController;
+    public ComponentController(PortfolioController portfolioController){
+        this.portfolioController = portfolioController;
     }
 }

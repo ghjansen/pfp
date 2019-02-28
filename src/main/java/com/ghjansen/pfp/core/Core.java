@@ -1,35 +1,30 @@
 package com.ghjansen.pfp.core;
 
-import com.ghjansen.pfp.control.ComponentController;
-import com.ghjansen.pfp.control.ProfileController;
+import com.ghjansen.pfp.catalog.Catalog;
+import com.ghjansen.pfp.control.PortfolioController;
 import processing.core.PApplet;
 
 public class Core {
 
     private static PApplet processing;
-    private ProfileController tc;
-    private ComponentController cc;
+    private PortfolioController portfolioController;
 
     public Core(PApplet applet){
         this.processing = applet;
+        this.processing.registerMethod("pre", this);
+        this.portfolioController = new PortfolioController();
+    }
 
-        //default block
-        //TODO constructors that allow implementations other than default
-        //StyleCatalog defaultStyleCatalog = new StyleCatalog();
-        //BehaviorCatalog defaultBehaviorCatalog = new BehaviorCatalog();
-        //Profile defaultProfile = new Profile(defaultStyleCatalog, defaultBehaviorCatalog);
-
-        //this.tc = new ProfileController(defaultProfile);
-        //this.cc = new ComponentController(tc);
+    public void pre(){
+        //TODO portfolio validation and assembly
     }
 
     public void draw(){
 
     }
 
-    public void drawTestForms(){
-        processing.line(0,0,50,50);
-        processing.rect(0,0,10,10);
+    public void registerCatalog(Catalog catalog){
+        portfolioController.addCatalog(catalog);
     }
 
     public static PApplet getProcessing(){
