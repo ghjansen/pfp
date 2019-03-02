@@ -1,15 +1,16 @@
 package com.ghjansen.pfp.control;
 
-import com.ghjansen.pfp.catalog.*;
+import com.ghjansen.pfp.portfolio.*;
 import com.ghjansen.pfp.classic.ClassicBehaviourCatalog;
 import com.ghjansen.pfp.classic.ClassicColourCatalog;
 import com.ghjansen.pfp.classic.ClassicComponentCatalog;
 import com.ghjansen.pfp.classic.ClassicStyleCatalog;
 import com.ghjansen.pfp.exception.UnsupportedCatalogException;
 
-public class PortfolioController {
+public final class PortfolioController {
 
     private Portfolio portfolio;
+    private ComponentController componentController;
 
     public PortfolioController(){
         this.portfolio = new Portfolio() {};
@@ -26,7 +27,7 @@ public class PortfolioController {
         } else if(ComponentCatalog.class.equals(c)){
             portfolio.setComponentCatalog((ComponentCatalog) catalog);
         } else {
-            ExceptionController.getInstance().reportAndExit(new UnsupportedCatalogException("The catalog \'"+c.getName()+"\' is not supported"));
+            ExceptionController.getInstance().reportAndExit(new UnsupportedCatalogException("The portfolio \'"+c.getName()+"\' is not supported"));
         }
         assemblyPortfolio();
     }
@@ -41,6 +42,7 @@ public class PortfolioController {
         portfolio.getStyleCatalog().resolveDependencies(portfolio.getColourCatalog());
         portfolio.getBehaviorCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
         portfolio.getComponentCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
+        componentController = new ComponentController(portfolio);
 
     }
 
@@ -57,6 +59,10 @@ public class PortfolioController {
         if(portfolio.getComponentCatalog() == null){
             portfolio.setComponentCatalog(new ClassicComponentCatalog());
         }
+    }
+
+    public void draw(){
+
     }
 
 

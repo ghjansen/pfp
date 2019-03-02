@@ -1,8 +1,8 @@
 package com.ghjansen.pfp.classic;
 
-import com.ghjansen.pfp.catalog.BehaviorCatalog;
+import com.ghjansen.pfp.portfolio.BehaviorCatalog;
 
-public class ClassicBehaviourCatalog extends BehaviorCatalog {
+public final class ClassicBehaviourCatalog extends BehaviorCatalog {
 
     protected void load() {
 

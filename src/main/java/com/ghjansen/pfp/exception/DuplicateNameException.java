@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.exception;
 
-public class DuplicateNameException extends Throwable {
+public final class DuplicateNameException extends Throwable {
 
     public DuplicateNameException(){
         super();

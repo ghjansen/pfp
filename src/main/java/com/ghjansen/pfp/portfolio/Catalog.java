@@ -1,7 +1,4 @@
-package com.ghjansen.pfp.catalog;
-
-import com.ghjansen.pfp.control.ExceptionController;
-import com.ghjansen.pfp.exception.DuplicateNameException;
+package com.ghjansen.pfp.portfolio;
 
 public abstract class Catalog<T> {
 

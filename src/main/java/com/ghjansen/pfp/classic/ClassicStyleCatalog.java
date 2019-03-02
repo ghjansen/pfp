@@ -1,9 +1,9 @@
 package com.ghjansen.pfp.classic;
 
-import com.ghjansen.pfp.catalog.Element;
-import com.ghjansen.pfp.catalog.StyleCatalog;
+import com.ghjansen.pfp.portfolio.Element;
+import com.ghjansen.pfp.portfolio.StyleCatalog;
 
-public class ClassicStyleCatalog extends StyleCatalog {
+public final class ClassicStyleCatalog extends StyleCatalog {
 
     protected void load() {
         addStyle("fillBase", new Element() {

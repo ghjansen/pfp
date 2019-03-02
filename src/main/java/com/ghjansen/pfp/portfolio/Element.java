@@ -1,4 +1,4 @@
-package com.ghjansen.pfp.catalog;
+package com.ghjansen.pfp.portfolio;
 
 import com.ghjansen.pfp.core.Core;
 import processing.core.PApplet;

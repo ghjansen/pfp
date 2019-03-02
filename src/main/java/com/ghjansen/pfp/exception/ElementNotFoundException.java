@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.exception;
 
-public class ElementNotFoundException extends Throwable {
+public final class ElementNotFoundException extends Throwable {
 
     public ElementNotFoundException(){
         super();

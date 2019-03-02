@@ -1,10 +1,21 @@
 package com.ghjansen.pfp.control;
-@Deprecated
-public class ComponentController {
 
-    private PortfolioController portfolioController;
+import com.ghjansen.pfp.portfolio.Portfolio;
 
-    public ComponentController(PortfolioController portfolioController){
-        this.portfolioController = portfolioController;
+public final class ComponentController {
+
+    private Portfolio portfolio;
+
+    public ComponentController(Portfolio portfolio){
+        this.portfolio = portfolio;
     }
+
+    private void calibrate(){
+
+    }
+
+    public void draw(){
+
+    }
+
 }

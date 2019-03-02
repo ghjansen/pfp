@@ -1,11 +1,11 @@
 package com.ghjansen.pfp.core;
 
-import com.ghjansen.pfp.catalog.Catalog;
-import com.ghjansen.pfp.catalog.Portfolio;
+import com.ghjansen.pfp.portfolio.Catalog;
+import com.ghjansen.pfp.portfolio.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
 import processing.core.PApplet;
 
-public class Core {
+public final class Core {
 
     private static PApplet processing;
     private PortfolioController portfolioController;
@@ -20,7 +20,7 @@ public class Core {
     }
 
     public void draw(){
-
+        portfolioController.draw();
     }
 
     public void registerCatalog(Catalog catalog){

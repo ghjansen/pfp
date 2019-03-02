@@ -1,4 +1,4 @@
-package com.ghjansen.pfp.catalog;
+package com.ghjansen.pfp.portfolio;
 
 import com.ghjansen.pfp.component.Colour;
 import com.ghjansen.pfp.control.ExceptionController;
@@ -15,7 +15,7 @@ public abstract class ColourCatalog extends Catalog<HashMap<String,Colour>> {
 
     protected void addColour(String name, Colour colour) {
         if(catalog.containsKey(name)){
-            ExceptionController.getInstance().reportAndExit(new DuplicateNameException("The name \'"+name+"\' was already used by another colour in the colour catalog"));
+            ExceptionController.getInstance().reportAndExit(new DuplicateNameException("The name \'"+name+"\' was already used by another colour in the colour portfolio"));
         } else {
             catalog.put(name, colour);
         }
@@ -25,7 +25,7 @@ public abstract class ColourCatalog extends Catalog<HashMap<String,Colour>> {
         if(catalog.containsKey(name)){
             return catalog.get(name);
         } else {
-            ExceptionController.getInstance().reportAndExit(new ColourNotFoundException("No colour with name \'"+name+"\' was found in the colour catalog"));
+            ExceptionController.getInstance().reportAndExit(new ColourNotFoundException("No colour with name \'"+name+"\' was found in the colour portfolio"));
             return null;
         }
     }

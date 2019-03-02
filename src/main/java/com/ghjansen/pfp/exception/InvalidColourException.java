@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.exception;
 
-public class InvalidColourException extends Throwable {
+public final class InvalidColourException extends Throwable {
 
     public InvalidColourException(){
         super();

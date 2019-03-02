@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.control;
 
-public class ExceptionController {
+public final class ExceptionController {
 
     private static ExceptionController instance = null;
 

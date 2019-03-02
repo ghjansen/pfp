@@ -1,16 +1,20 @@
-package com.ghjansen.pfp.component;
+package com.ghjansen.pfp.portfolio;
 
-import com.ghjansen.pfp.catalog.Element;
-import processing.core.PApplet;
+import com.ghjansen.pfp.component.Point;
 
 public abstract class Component extends Element {
 
-    private Component parent;
-    private Component child;
-    private Point reference;
-    private boolean isAbsolute;
-    private boolean isEnabled;
-    private boolean isVisible;
+    protected Component parent;
+    protected Component child;
+    protected Point reference;
+    protected boolean isAbsolute;
+    protected boolean isEnabled;
+    protected boolean isVisible;
+
+    public Component(){
+        this.reference = new Point(0,0);
+        this.isAbsolute = true;
+    }
 
     public Component(Point reference){
         

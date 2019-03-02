@@ -1,4 +1,4 @@
-package com.ghjansen.pfp.catalog;
+package com.ghjansen.pfp.portfolio;
 
 public abstract class Portfolio {
 

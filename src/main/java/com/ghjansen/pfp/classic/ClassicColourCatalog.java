@@ -1,9 +1,9 @@
 package com.ghjansen.pfp.classic;
 
-import com.ghjansen.pfp.catalog.ColourCatalog;
+import com.ghjansen.pfp.portfolio.ColourCatalog;
 import com.ghjansen.pfp.component.Colour;
 
-public class ClassicColourCatalog extends ColourCatalog {
+public final class ClassicColourCatalog extends ColourCatalog {
 
     protected void load() {
         addColour("base", new Colour(255));

@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.exception;
 
-public class UnsupportedCatalogException extends Throwable {
+public final class UnsupportedCatalogException extends Throwable {
 
     public UnsupportedCatalogException(){
         super();
