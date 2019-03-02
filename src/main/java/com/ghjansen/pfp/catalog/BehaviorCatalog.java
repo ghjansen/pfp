@@ -17,7 +17,7 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
 
     protected void addBehavior(String name, Element element) {
         if(catalog.containsKey(name)){
-            ExceptionController.getInstance().report(new DuplicateNameException("The name \'"+name+"\' was already used by another element in the behavior catalog"));
+            ExceptionController.getInstance().reportAndExit(new DuplicateNameException("The name \'"+name+"\' was already used by another element in the behavior catalog"));
         } else {
             catalog.put(name, element);
         }
@@ -27,7 +27,7 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
         if(catalog.containsKey(name)){
             return catalog.get(name);
         } else {
-            ExceptionController.getInstance().report(new ElementNotFoundException("No element with name \'"+name+"\' was found in the behavior catalog"));
+            ExceptionController.getInstance().reportAndExit(new ElementNotFoundException("No element with name \'"+name+"\' was found in the behavior catalog"));
             return null;
         }
     }

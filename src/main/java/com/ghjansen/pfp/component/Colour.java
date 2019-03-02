@@ -3,7 +3,6 @@ package com.ghjansen.pfp.component;
 import com.ghjansen.pfp.control.ExceptionController;
 import com.ghjansen.pfp.exception.InvalidColourException;
 
-import java.math.BigInteger;
 import java.util.regex.Pattern;
 
 public class Colour {
@@ -65,14 +64,14 @@ public class Colour {
         boolean b = CHANNEL_DEC_MIN <= blue && blue <= CHANNEL_DEC_MAX;
         boolean a = CHANNEL_DEC_MIN <= alpha && alpha <= CHANNEL_DEC_MAX;
         if(r && g && b && a == false){
-            ExceptionController.getInstance().report(new InvalidColourException("At least one channel informed is not between the range "+ CHANNEL_DEC_MIN +" and "+ CHANNEL_DEC_MAX));
+            ExceptionController.getInstance().reportAndExit(new InvalidColourException("At least one channel informed is not between the range "+ CHANNEL_DEC_MIN +" and "+ CHANNEL_DEC_MAX));
         }
     }
 
     private void validateFromHexadecimal(String hexadecimal) {
         hexValidator = Pattern.compile(HEX_PATTERN);
         if(!hexValidator.matcher(hexadecimal).matches()){
-            ExceptionController.getInstance().report(new InvalidColourException("The hexadecimal value informed does not match with the pattern "+HEX_PATTERN));
+            ExceptionController.getInstance().reportAndExit(new InvalidColourException("The hexadecimal value informed does not match with the pattern "+HEX_PATTERN));
         }
     }
 

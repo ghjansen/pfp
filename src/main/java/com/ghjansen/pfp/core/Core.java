@@ -1,6 +1,7 @@
 package com.ghjansen.pfp.core;
 
 import com.ghjansen.pfp.catalog.Catalog;
+import com.ghjansen.pfp.catalog.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
 import processing.core.PApplet;
 
@@ -11,12 +12,11 @@ public class Core {
 
     public Core(PApplet applet){
         this.processing = applet;
-        this.processing.registerMethod("pre", this);
         this.portfolioController = new PortfolioController();
     }
 
-    public void pre(){
-        //TODO portfolio validation and assembly
+    public static PApplet getProcessing(){
+        return processing;
     }
 
     public void draw(){
@@ -27,8 +27,10 @@ public class Core {
         portfolioController.addCatalog(catalog);
     }
 
-    public static PApplet getProcessing(){
-        return processing;
+    public void setPortfolio(Portfolio portfolio){
+        portfolioController.setPortfolio(portfolio);
     }
+
+
 
 }

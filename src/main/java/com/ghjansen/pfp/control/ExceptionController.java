@@ -11,8 +11,12 @@ public class ExceptionController {
         return instance;
     }
 
+    public void reportAndExit(Throwable t){
+        report(t);
+        System.exit(-1);
+    }
+
     public void report(Throwable t){
         System.out.println(t.getMessage());
-        System.exit(-1);
     }
 }
