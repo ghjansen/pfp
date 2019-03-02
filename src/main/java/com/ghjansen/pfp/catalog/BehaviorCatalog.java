@@ -1,5 +1,6 @@
 package com.ghjansen.pfp.catalog;
 
+import com.ghjansen.pfp.control.ExceptionController;
 import com.ghjansen.pfp.exception.DuplicateNameException;
 import com.ghjansen.pfp.exception.ElementNotFoundException;
 
@@ -14,19 +15,20 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
         super(new HashMap<String,Element>());
     }
 
-    protected void addBehavior(String name, Element element) throws DuplicateNameException{
+    protected void addBehavior(String name, Element element) {
         if(catalog.containsKey(name)){
-            throw new DuplicateNameException("The name \'"+name+"\' was already used by another element in the behavior catalog");
+            ExceptionController.getInstance().report(new DuplicateNameException("The name \'"+name+"\' was already used by another element in the behavior catalog"));
         } else {
             catalog.put(name, element);
         }
     }
 
-    public Element getBehavior(String name) throws ElementNotFoundException {
+    public Element getBehavior(String name) {
         if(catalog.containsKey(name)){
             return catalog.get(name);
         } else {
-            throw new ElementNotFoundException("No element with name \'"+name+"\' was found in the behavior catalog");
+            ExceptionController.getInstance().report(new ElementNotFoundException("No element with name \'"+name+"\' was found in the behavior catalog"));
+            return null;
         }
     }
 

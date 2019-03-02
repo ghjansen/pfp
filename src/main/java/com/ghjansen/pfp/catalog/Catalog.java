@@ -1,14 +1,17 @@
 package com.ghjansen.pfp.catalog;
 
+import com.ghjansen.pfp.control.ExceptionController;
+import com.ghjansen.pfp.exception.DuplicateNameException;
+
 public abstract class Catalog<T> {
 
     protected T catalog;
 
-    public Catalog(T catalog){
+    public Catalog(T catalog) {
         this.catalog = catalog;
-        createAndAddElements();
+        load();
     }
 
-    protected abstract void createAndAddElements();
+    protected abstract void load();
 
 }
