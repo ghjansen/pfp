@@ -19,6 +19,14 @@ public final class Core {
         return processing;
     }
 
+    public void settings(){
+
+    }
+
+    public void setup(){
+        this.portfolioController.calibrateSetup();
+    }
+
     public void draw(){
         portfolioController.draw();
     }

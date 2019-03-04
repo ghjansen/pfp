@@ -8,11 +8,15 @@ public final class ComponentController {
 
     public ComponentController(Portfolio portfolio){
         this.portfolio = portfolio;
-        calibrate();
+        calibrateSettings();
     }
 
-    private void calibrate(){
+    private void calibrateSettings(){
         portfolio.getComponentCatalog().getFrame().content();
+    }
+
+    public void calibrateSetup(){
+        portfolio.getComponentCatalog().getFrame().setupResizable();
     }
 
     public void draw(){

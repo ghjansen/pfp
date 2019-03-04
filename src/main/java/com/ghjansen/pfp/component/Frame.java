@@ -1,5 +1,6 @@
 package com.ghjansen.pfp.component;
 
+import com.ghjansen.pfp.core.Core;
 import com.ghjansen.pfp.portfolio.Component;
 
 public class Frame extends Component {
@@ -42,17 +43,22 @@ public class Frame extends Component {
         /*
         fullScreen() must be the first call inside setup() or settings()
         https://processing.org/reference/fullScreen_.html
+        --
+        also p.getSurface() is null from settings(), so to avoid NPE
+        p.getSurface().setResizable(boolean) will be called from setup()
          */
         if(isFullScreen){
             p.fullScreen();
         } else if (width == 0 && height == 0) {
             //in case the fullScreen boolean is informed as false
             p.size(DEFAULT_SIZE, DEFAULT_SIZE);
-            p.getSurface().setResizable(isResizable);
         } else {
             p.size(width, height);
-            p.getSurface().setResizable(isResizable);
         }
+    }
+
+    public void setupResizable(){
+        Core.getProcessing().getSurface().setResizable(isResizable);
     }
 
     public int getWidth() {

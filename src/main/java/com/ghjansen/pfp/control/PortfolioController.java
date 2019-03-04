@@ -43,7 +43,6 @@ public final class PortfolioController {
         portfolio.getBehaviorCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
         portfolio.getComponentCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
         componentController = new ComponentController(portfolio);
-
     }
 
     private void validatePortfolio(){
@@ -59,6 +58,10 @@ public final class PortfolioController {
         if(portfolio.getComponentCatalog() == null){
             portfolio.setComponentCatalog(new ClassicComponentCatalog());
         }
+    }
+
+    public void calibrateSetup(){
+        componentController.calibrateSetup();
     }
 
     public void draw(){

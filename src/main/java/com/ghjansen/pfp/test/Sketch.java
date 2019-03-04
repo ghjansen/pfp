@@ -26,18 +26,21 @@ public class Sketch extends PApplet {
         portfolio.setBehaviorCatalog(new ClassicBehaviourCatalog());
         portfolio.setComponentCatalog(new ClassicComponentCatalog());
         c.setPortfolio(portfolio);
+        c.settings();
     }
 
     public void setup(){
         //size(500, 500);
         //System.out.println("setup: "+System.currentTimeMillis());
         //fill(120,50,240);
+        //getSurface().setResizable(true);
+        c.setup();
     }
 
     public void draw(){
         //ellipse(width/2,height/2,second(),second());
         //c.drawTestForms();
         //noLoop();
-
+        c.draw();
     }
 }
