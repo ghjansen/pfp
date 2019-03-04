@@ -1,6 +1,11 @@
 package com.ghjansen.pfp.test;
 
+import com.ghjansen.pfp.classic.ClassicBehaviourCatalog;
+import com.ghjansen.pfp.classic.ClassicColourCatalog;
+import com.ghjansen.pfp.classic.ClassicComponentCatalog;
+import com.ghjansen.pfp.classic.ClassicStyleCatalog;
 import com.ghjansen.pfp.core.Core;
+import com.ghjansen.pfp.portfolio.Portfolio;
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
@@ -13,18 +18,24 @@ public class Sketch extends PApplet {
 
     public void settings(){
         //size(300,300);
-        System.out.println("settings: "+System.currentTimeMillis());
+        //System.out.println("settings: "+System.currentTimeMillis());
+        c = new Core(this);
+        Portfolio portfolio = new Portfolio() {};
+        portfolio.setColourCatalog(new ClassicColourCatalog());
+        portfolio.setStyleCatalog(new ClassicStyleCatalog());
+        portfolio.setBehaviorCatalog(new ClassicBehaviourCatalog());
+        portfolio.setComponentCatalog(new ClassicComponentCatalog());
+        c.setPortfolio(portfolio);
     }
 
     public void setup(){
-        size(500, 500);
-        System.out.println("setup: "+System.currentTimeMillis());
-        fill(120,50,240);
-        c = new Core(this);
+        //size(500, 500);
+        //System.out.println("setup: "+System.currentTimeMillis());
+        //fill(120,50,240);
     }
 
     public void draw(){
-        ellipse(width/2,height/2,second(),second());
+        //ellipse(width/2,height/2,second(),second());
         //c.drawTestForms();
         //noLoop();
 
