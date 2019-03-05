@@ -2,20 +2,19 @@ package com.ghjansen.pfp.control;
 
 import com.ghjansen.pfp.portfolio.Portfolio;
 
-public final class ComponentController {
+public final class ComponentController extends Controller {
 
     private Portfolio portfolio;
 
     public ComponentController(Portfolio portfolio){
         this.portfolio = portfolio;
-        calibrateSettings();
     }
 
-    private void calibrateSettings(){
+    public void settings() {
         portfolio.getComponentCatalog().getFrame().content();
     }
 
-    public void calibrateSetup(){
+    public void setup() {
         portfolio.getComponentCatalog().getFrame().setupResizable();
     }
 

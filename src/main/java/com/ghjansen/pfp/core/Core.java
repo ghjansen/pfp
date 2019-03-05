@@ -20,23 +20,23 @@ public final class Core {
     }
 
     public void settings(){
-
+        this.portfolioController.settings();
     }
 
     public void setup(){
-        this.portfolioController.calibrateSetup();
+        this.portfolioController.setup();
     }
 
     public void draw(){
-        portfolioController.draw();
+        this.portfolioController.draw();
     }
 
     public void registerCatalog(Catalog catalog){
-        portfolioController.addCatalog(catalog);
+        this.portfolioController.addCatalog(catalog);
     }
 
     public void setPortfolio(Portfolio portfolio){
-        portfolioController.setPortfolio(portfolio);
+        this.portfolioController.setPortfolio(portfolio);
     }
 
 
