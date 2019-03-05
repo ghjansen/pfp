@@ -18,11 +18,8 @@ public final class PortfolioController extends Controller {
 
     public void settings() {
         validatePortfolio();
-        portfolio.getStyleCatalog().resolveDependencies(portfolio.getColourCatalog());
-        portfolio.getBehaviorCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
-        portfolio.getComponentCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
-        componentController = new ComponentController(portfolio);
-        componentController.settings();
+        resolveDependencies();
+        createComponentController();
     }
 
     public void setup() {
@@ -65,6 +62,17 @@ public final class PortfolioController extends Controller {
         if(portfolio.getComponentCatalog() == null){
             portfolio.setComponentCatalog(new ClassicComponentCatalog());
         }
+    }
+
+    private void resolveDependencies(){
+        portfolio.getStyleCatalog().resolveDependencies(portfolio.getColourCatalog());
+        portfolio.getBehaviorCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
+        portfolio.getComponentCatalog().resolveDependencies(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
+    }
+
+    private void createComponentController(){
+        componentController = new ComponentController(portfolio);
+        componentController.settings();
     }
 
 }

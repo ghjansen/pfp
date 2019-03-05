@@ -12,7 +12,7 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 
-    private Core c;
+    private Core c = new Core(this);;
 
     public static void main(String args[]){
         PApplet.main("com.ghjansen.pfp.test.Sketch");
@@ -28,7 +28,6 @@ public class Sketch extends PApplet {
         //portfolio.setBehaviorCatalog(new ClassicBehaviourCatalog());
         //portfolio.setComponentCatalog(new ClassicComponentCatalog());
         //c.setPortfolio(portfolio);
-        c = new Core(this);
         c.registerCatalog(new MyColourCatalog());
         c.settings();
     }
