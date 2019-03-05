@@ -7,6 +7,6 @@ public final class UnsupportedCatalogException extends Throwable {
     }
 
     public UnsupportedCatalogException(String message){
-        super();
+        super(message);
     }
 }

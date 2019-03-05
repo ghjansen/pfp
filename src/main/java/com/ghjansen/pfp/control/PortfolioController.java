@@ -34,17 +34,17 @@ public final class PortfolioController extends Controller {
     }
 
     public void addCatalog(Catalog catalog){
-        Class c = catalog.getClass();
+        Class c = catalog.getClass().getSuperclass();
         if(ColourCatalog.class.equals(c)){
             portfolio.setColourCatalog((ColourCatalog) catalog);
-        } else if(StyleCatalog.class.equals(c)){
+        } else if(StyleCatalog.class.getSuperclass().equals(c)){
             portfolio.setStyleCatalog((StyleCatalog) catalog);
         } else if(BehaviorCatalog.class.equals(c)){
             portfolio.setBehaviorCatalog((BehaviorCatalog) catalog);
         } else if(ComponentCatalog.class.equals(c)){
             portfolio.setComponentCatalog((ComponentCatalog) catalog);
         } else {
-            ExceptionController.getInstance().reportAndExit(new UnsupportedCatalogException("The portfolio \'"+c.getName()+"\' is not supported"));
+            ExceptionController.getInstance().reportAndExit(new UnsupportedCatalogException("The catalog \'"+c.getName()+"\' is not supported"));
         }
     }
 
