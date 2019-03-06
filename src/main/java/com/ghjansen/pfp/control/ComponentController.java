@@ -1,9 +1,9 @@
 package com.ghjansen.pfp.control;
 
-import com.ghjansen.pfp.core.ProcessingMethods;
+import com.ghjansen.pfp.core.SketchMethods;
 import com.ghjansen.pfp.portfolio.Portfolio;
 
-public final class ComponentController extends Controller implements ProcessingMethods {
+public final class ComponentController extends Controller implements SketchMethods {
 
     private Portfolio portfolio;
 

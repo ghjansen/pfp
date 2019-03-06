@@ -1,6 +1,6 @@
 package com.ghjansen.pfp.core;
 
-public interface ProcessingMethods {
+public interface SketchMethods {
 
     public void settings();
     public void setup();

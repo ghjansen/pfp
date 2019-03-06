@@ -13,7 +13,7 @@ public final class ExceptionController {
 
     public void reportAndExit(Throwable t){
         report(t);
-        System.exit(-1);
+        System.exit(1);
     }
 
     public void report(Throwable t){
