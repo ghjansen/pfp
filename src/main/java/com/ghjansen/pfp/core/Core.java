@@ -5,7 +5,7 @@ import com.ghjansen.pfp.portfolio.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
 import processing.core.PApplet;
 
-public final class Core {
+public final class Core implements ProcessingMethods {
 
     private static PApplet processing;
     private PortfolioController portfolioController;

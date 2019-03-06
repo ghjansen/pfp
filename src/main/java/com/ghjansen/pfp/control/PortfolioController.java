@@ -1,5 +1,6 @@
 package com.ghjansen.pfp.control;
 
+import com.ghjansen.pfp.core.ProcessingMethods;
 import com.ghjansen.pfp.portfolio.*;
 import com.ghjansen.pfp.classic.ClassicBehaviourCatalog;
 import com.ghjansen.pfp.classic.ClassicColourCatalog;
@@ -7,7 +8,7 @@ import com.ghjansen.pfp.classic.ClassicComponentCatalog;
 import com.ghjansen.pfp.classic.ClassicStyleCatalog;
 import com.ghjansen.pfp.exception.UnsupportedCatalogException;
 
-public final class PortfolioController extends Controller {
+public final class PortfolioController extends Controller implements ProcessingMethods {
 
     private Portfolio portfolio;
     private ComponentController componentController;
