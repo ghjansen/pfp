@@ -98,4 +98,8 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     public boolean isFullScreen() {
         return isFullScreen;
     }
+
+    public boolean isIs3d() {
+        return is3d;
+    }
 }
