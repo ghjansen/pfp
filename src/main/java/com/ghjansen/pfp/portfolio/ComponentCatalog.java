@@ -15,12 +15,12 @@ public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
         super(new ArrayList<Component>());
     }
 
-    protected void configureFrame(int width, int height, boolean isResizable){
-        this.frame = new Frame(width, height, isResizable);
+    protected void configureFrameAsWindow(int width, int height, boolean isResizable, boolean is3d){
+        this.frame = new Frame(width, height, isResizable, is3d);
     }
 
-    protected void configureFrameAsFullScreen(){
-        this.frame = new Frame(true);
+    protected void configureFrameAsFullScreen(boolean is3d){
+        this.frame = new Frame(true, is3d);
     }
 
     protected void addComponent(Component component){

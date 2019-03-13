@@ -12,7 +12,7 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 
-    private Core c = new Core(this);;
+    private Core c = new Core(this);
 
     public static void main(String args[]){
         PApplet.main("com.ghjansen.pfp.test.Sketch");
@@ -30,6 +30,8 @@ public class Sketch extends PApplet {
         //c.setPortfolio(portfolio);
         c.registerCatalog(new MyColourCatalog());
         c.settings();
+        //size(100,100,P3D);
+
     }
 
     public void setup(){
@@ -38,6 +40,7 @@ public class Sketch extends PApplet {
         //fill(120,50,240);
         //getSurface().setResizable(true);
         c.setup();
+        //background(0);
     }
 
     public void draw(){
@@ -45,6 +48,10 @@ public class Sketch extends PApplet {
         //c.drawTestForms();
         //noLoop();
         c.draw();
+        //translate(0,height/2, -height/4);
+        //box(60,80,60);
+        //translate(width,0,-height/2);
+        //box(60,80,60);
     }
 }
 

@@ -1,9 +1,11 @@
 package com.ghjansen.pfp.control;
 
-import com.ghjansen.pfp.core.SketchMethods;
+import com.ghjansen.pfp.core.SketchDraw;
+import com.ghjansen.pfp.core.SketchSettings;
+import com.ghjansen.pfp.core.SketchSetup;
 import com.ghjansen.pfp.portfolio.Portfolio;
 
-public final class ComponentController extends Controller implements SketchMethods {
+public final class ComponentController extends Controller implements SketchSettings, SketchSetup, SketchDraw {
 
     private Portfolio portfolio;
 
@@ -12,11 +14,11 @@ public final class ComponentController extends Controller implements SketchMetho
     }
 
     public void settings() {
-        portfolio.getComponentCatalog().getFrame().content();
+        portfolio.getComponentCatalog().getFrame().settings();
     }
 
     public void setup() {
-        portfolio.getComponentCatalog().getFrame().setupResizable();
+        portfolio.getComponentCatalog().getFrame().setup();
     }
 
     public void draw(){

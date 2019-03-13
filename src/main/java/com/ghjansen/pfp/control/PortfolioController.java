@@ -1,6 +1,8 @@
 package com.ghjansen.pfp.control;
 
-import com.ghjansen.pfp.core.SketchMethods;
+import com.ghjansen.pfp.core.SketchDraw;
+import com.ghjansen.pfp.core.SketchSettings;
+import com.ghjansen.pfp.core.SketchSetup;
 import com.ghjansen.pfp.portfolio.*;
 import com.ghjansen.pfp.classic.ClassicBehaviourCatalog;
 import com.ghjansen.pfp.classic.ClassicColourCatalog;
@@ -8,7 +10,7 @@ import com.ghjansen.pfp.classic.ClassicComponentCatalog;
 import com.ghjansen.pfp.classic.ClassicStyleCatalog;
 import com.ghjansen.pfp.exception.UnsupportedCatalogException;
 
-public final class PortfolioController extends Controller implements SketchMethods {
+public final class PortfolioController extends Controller implements SketchSettings, SketchSetup, SketchDraw {
 
     private Portfolio portfolio;
     private ComponentController componentController;

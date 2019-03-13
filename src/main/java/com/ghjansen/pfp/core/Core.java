@@ -5,7 +5,7 @@ import com.ghjansen.pfp.portfolio.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
 import processing.core.PApplet;
 
-public final class Core implements SketchMethods {
+public final class Core implements SketchSettings, SketchSetup, SketchDraw {
 
     private static PApplet processing;
     private PortfolioController portfolioController;
