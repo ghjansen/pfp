@@ -31,8 +31,9 @@ public abstract class StyleCatalog extends Catalog<HashMap<String,Element>> {
         }
     }
 
-    public void resolveDependencies(ColourCatalog c){
+    public void assembly(ColourCatalog c){
         this.c = c;
+        load();
     }
 
 }

@@ -36,10 +36,11 @@ public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
         return catalog;
     }
 
-    public void resolveDependencies(ColourCatalog c, StyleCatalog s, BehaviorCatalog b){
+    public void assembly(ColourCatalog c, StyleCatalog s, BehaviorCatalog b){
         this.c = c;
         this.s = s;
         this.b = b;
+        load();
     }
 
     public Frame getFrame(){

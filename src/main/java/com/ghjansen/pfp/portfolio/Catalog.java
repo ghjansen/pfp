@@ -6,7 +6,6 @@ public abstract class Catalog<T> {
 
     public Catalog(T catalog) {
         this.catalog = catalog;
-        load();
     }
 
     protected abstract void load();
