@@ -6,9 +6,9 @@ import com.ghjansen.pfp.component.Colour;
 public final class ClassicColourCatalog extends ColourCatalog {
 
     protected void load() {
-        addColour("base", new Colour(255));
-        addColour("outline", new Colour(187));
-        addColour("highlight", new Colour(0));
+        addColour("base", new Colour(255F));
+        addColour("outline", new Colour(187F));
+        addColour("highlight", new Colour(0F));
     }
 
 }

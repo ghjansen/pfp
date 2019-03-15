@@ -32,6 +32,10 @@ public class Colour {
         this(grey, grey, grey);
     }
 
+    public Colour(int rgb) {
+        this(Integer.toHexString(rgb));
+    }
+
     public Colour(float grey, float alpha) {
         this(grey, grey, grey, alpha);
     }

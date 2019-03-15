@@ -17,6 +17,6 @@ public final class ExceptionController {
     }
 
     public void report(Throwable t){
-        System.out.println(t.getMessage());
+        t.printStackTrace();
     }
 }

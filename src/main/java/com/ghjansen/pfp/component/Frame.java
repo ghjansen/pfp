@@ -11,6 +11,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     protected boolean isResizable;
     protected boolean isFullScreen;
     protected boolean is3d;
+    protected Colour background;
 
     public Frame(){
         this.initialWidth = p.DEFAULT_WIDTH;
@@ -20,17 +21,19 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
         this.isEnabled = true;
         this.isVisible = true;
         this.is3d = false;
+        this.background = new Colour(p.sketchWindowColor());
     }
 
-    public Frame(boolean isFullScreen, boolean is3d){
+    public Frame(boolean isFullScreen, boolean is3d, Colour background){
         this.isResizable = false;
         this.isFullScreen = isFullScreen;
         this.isEnabled = true;
         this.isVisible = true;
         this.is3d = is3d;
+        this.background = background;
     }
 
-    public Frame(int initialWidth, int initialHeight, boolean isResizable, boolean is3d){
+    public Frame(int initialWidth, int initialHeight, boolean isResizable, boolean is3d, Colour background){
         this.initialWidth = initialWidth;
         this.initialHeight = initialHeight;
         this.isResizable = isResizable;
@@ -38,6 +41,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
         this.isEnabled = true;
         this.isVisible = true;
         this.is3d = is3d;
+        this.background = background;
     }
 
     public void content() {
@@ -75,6 +79,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
 
     public void setup(){
         p.getSurface().setResizable(isResizable);
+        p.background(background.getValue());
     }
 
     public int getInitialWidth() {
