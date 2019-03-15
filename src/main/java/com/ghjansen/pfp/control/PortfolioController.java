@@ -74,7 +74,7 @@ public final class PortfolioController extends Controller implements SketchSetti
     }
 
     private void createComponentController(){
-        componentController = new ComponentController(portfolio);
+        componentController = new ComponentController(portfolio.getComponentCatalog());
         componentController.settings();
     }
 

@@ -13,8 +13,8 @@ public final class Core implements SketchSettings, SketchSetup, SketchDraw {
 
     public Core(PApplet applet){
         this.processing = applet;
-        this.portfolioController = new PortfolioController();
         this.sketchMethodSynchronizer = new SketchMethodSynchronizer();
+        this.portfolioController = new PortfolioController();
     }
 
     public static PApplet getProcessing(){

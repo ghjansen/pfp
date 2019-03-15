@@ -1,23 +1,20 @@
 package com.ghjansen.pfp.component;
 
-import com.ghjansen.pfp.core.Core;
 import com.ghjansen.pfp.core.SketchSettings;
 import com.ghjansen.pfp.core.SketchSetup;
 import com.ghjansen.pfp.portfolio.Component;
 
 public class Frame extends Component implements SketchSettings, SketchSetup {
 
-    protected static final int DEFAULT_SIZE = 100;
-
-    protected int width;
-    protected int height;
+    protected int initialWidth;
+    protected int initialHeight;
     protected boolean isResizable;
     protected boolean isFullScreen;
     protected boolean is3d;
 
     public Frame(){
-        this.width = DEFAULT_SIZE;
-        this.height = DEFAULT_SIZE;
+        this.initialWidth = p.DEFAULT_WIDTH;
+        this.initialHeight = p.DEFAULT_HEIGHT;
         this.isResizable = false;
         this.isFullScreen = false;
         this.isEnabled = true;
@@ -26,8 +23,6 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public Frame(boolean isFullScreen, boolean is3d){
-        this.width = 0;
-        this.height = 0;
         this.isResizable = false;
         this.isFullScreen = isFullScreen;
         this.isEnabled = true;
@@ -35,9 +30,9 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
         this.is3d = is3d;
     }
 
-    public Frame(int width, int height, boolean isResizable, boolean is3d){
-        this.width = width;
-        this.height = height;
+    public Frame(int initialWidth, int initialHeight, boolean isResizable, boolean is3d){
+        this.initialWidth = initialWidth;
+        this.initialHeight = initialHeight;
         this.isResizable = isResizable;
         this.isFullScreen = false;
         this.isEnabled = true;
@@ -56,23 +51,22 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
         if(is3d){
             if(isFullScreen){
                 p.fullScreen(p.P3D);
-            } else if (width == 0 && height == 0) {
+            } else if (initialWidth == 0 && initialHeight == 0) {
                 //in case the fullScreen boolean is informed as false
-                p.size(DEFAULT_SIZE, DEFAULT_SIZE, p.P3D);
+                p.size(p.DEFAULT_WIDTH, p.DEFAULT_WIDTH, p.P3D);
             } else {
-                p.size(width, height, p.P3D);
+                p.size(initialWidth, initialHeight, p.P3D);
             }
         } else {
             if(isFullScreen){
                 p.fullScreen();
-            } else if (width == 0 && height == 0) {
+            } else if (initialWidth == 0 && initialHeight == 0) {
                 //in case the fullScreen boolean is informed as false
-                p.size(DEFAULT_SIZE, DEFAULT_SIZE);
+                p.size(p.DEFAULT_WIDTH, p.DEFAULT_WIDTH);
             } else {
-                p.size(width, height);
+                p.size(initialWidth, initialHeight);
             }
         }
-
     }
 
     public void settings(){
@@ -80,15 +74,23 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public void setup(){
-        Core.getProcessing().getSurface().setResizable(isResizable);
+        p.getSurface().setResizable(isResizable);
     }
 
-    public int getWidth() {
-        return width;
+    public int getInitialWidth() {
+        return initialWidth;
     }
 
-    public int getHeight() {
-        return height;
+    public int getCurrentWidth(){
+        return p.width;
+    }
+
+    public int getInitialHeight() {
+        return initialHeight;
+    }
+
+    public int getCurrentHeight(){
+        return p.height;
     }
 
     public boolean isResizable() {
@@ -102,4 +104,5 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     public boolean isIs3d() {
         return is3d;
     }
+
 }
