@@ -32,9 +32,9 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
         }
     }
 
-    public void assembly(ColourCatalog c, StyleCatalog s){
-        this.c = c;
-        this.s = s;
+    public void assemble(Catalog ... dependencies){
+        this.c = (ColourCatalog) dependencies[0];
+        this.s = (StyleCatalog) dependencies[1];
         load();
     }
 

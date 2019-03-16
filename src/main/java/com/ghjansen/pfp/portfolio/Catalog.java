@@ -10,4 +10,8 @@ public abstract class Catalog<T> {
 
     protected abstract void load();
 
+    public void assemble(Catalog ... dependencies){
+        load();
+    }
+
 }

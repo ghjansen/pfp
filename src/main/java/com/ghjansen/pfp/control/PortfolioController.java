@@ -21,7 +21,7 @@ public final class PortfolioController extends Controller implements SketchSetti
 
     public void settings() {
         validatePortfolio();
-        assemblyPortfolio();
+        assemblePortfolio();
         createComponentController();
     }
 
@@ -67,10 +67,11 @@ public final class PortfolioController extends Controller implements SketchSetti
         }
     }
 
-    private void assemblyPortfolio(){
-        portfolio.getStyleCatalog().assembly(portfolio.getColourCatalog());
-        portfolio.getBehaviorCatalog().assembly(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
-        portfolio.getComponentCatalog().assembly(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
+    private void assemblePortfolio(){
+        portfolio.getColourCatalog().assemble();
+        portfolio.getStyleCatalog().assemble(portfolio.getColourCatalog());
+        portfolio.getBehaviorCatalog().assemble(portfolio.getColourCatalog(), portfolio.getStyleCatalog());
+        portfolio.getComponentCatalog().assemble(portfolio.getColourCatalog(), portfolio.getStyleCatalog(), portfolio.getBehaviorCatalog());
     }
 
     private void createComponentController(){
