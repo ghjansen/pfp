@@ -28,9 +28,10 @@ public class Sketch extends PApplet {
         //portfolio.setBehaviorCatalog(new ClassicBehaviourCatalog());
         //portfolio.setComponentCatalog(new ClassicComponentCatalog());
         //c.setPortfolio(portfolio);
-        c.registerCatalog(new MyColourCatalog());
+        //c.registerCatalog(new MyColourCatalog());
         c.settings();
-        //size(100,100,P3D);
+        //size(100,100);
+
 
     }
 
@@ -44,13 +45,13 @@ public class Sketch extends PApplet {
     }
 
     public void draw(){
-        //ellipse(width/2,height/2,second(),second());
+        //ellipse(initialWidth/2,initialHeight/2,second(),second());
         //c.drawTestForms();
         //noLoop();
         c.draw();
-        //translate(0,height/2, -height/4);
+        //translate(0,initialHeight/2, -initialHeight/4);
         //box(60,80,60);
-        //translate(width,0,-height/2);
+        //translate(initialWidth,0,-initialHeight/2);
         //box(60,80,60);
     }
 }

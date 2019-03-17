@@ -30,7 +30,7 @@ public final class PortfolioController extends Controller implements SketchSetti
     }
 
     public void draw(){
-
+        componentController.draw();
     }
 
     public void addCatalog(Catalog catalog){

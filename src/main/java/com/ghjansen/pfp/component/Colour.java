@@ -20,6 +20,7 @@ public class Colour {
     private float blue;
     private float alpha;
     private int value;
+    private int valueWithAlpha;
 
     //hexadecimal channels
     private String redHex;
@@ -27,6 +28,7 @@ public class Colour {
     private String blueHex;
     private String alphaHex;
     private String valueHex;
+    private String valueHexWithAlpha;
 
     public Colour(float grey) {
         this(grey, grey, grey);
@@ -90,9 +92,7 @@ public class Colour {
         this.blueHex = String.format(CHANNEL_HEX_FORMAT, (int) blue);
         this.alphaHex = String.format(CHANNEL_HEX_FORMAT, (int) alpha);
         //set values
-        final String noPrefixHex = redHex + greenHex + blueHex;
-        this.value = Integer.parseInt(noPrefixHex, 16);
-        this.valueHex = "#" + noPrefixHex;
+        setValues();
     }
 
     private void setColourFromHexadecimal(String hexadecimal){
@@ -118,9 +118,37 @@ public class Colour {
         this.blue = Integer.parseInt(blueHex, 16);
         this.alpha = Integer.parseInt(alphaHex, 16);
         //set values
-        this.valueHex = "#" + noPrefixHex;
-        this.value = Integer.parseInt(noPrefixHex, 16);
+        setValues();
     }
+
+    private void setValues(){
+        setValue();
+        setValueWithAlpha();
+        setValueHex();
+        setValueHexWithAlpha();
+    }
+
+    private void setValue(){
+        this.value = (int) red;
+        this.value = (this.value << 8) + (int) green;
+        this.value = (this.value << 8) + (int) blue;
+    }
+
+    private void setValueWithAlpha(){
+        this.valueWithAlpha = (int) alpha;
+        this.valueWithAlpha = (this.valueWithAlpha << 8) + (int) red;
+        this.valueWithAlpha = (this.valueWithAlpha << 8) + (int) green;
+        this.valueWithAlpha = (this.valueWithAlpha << 8) + (int) blue;
+    }
+
+    private void setValueHex(){
+        this.valueHex = "#" + redHex + greenHex + blueHex;
+    }
+
+    private void setValueHexWithAlpha(){
+        this.valueHexWithAlpha = "#" + alpha + redHex + greenHex + blueHex;
+    }
+
 
     public float getRed() {
         return red;
@@ -140,6 +168,10 @@ public class Colour {
 
     public int getValue() {
         return value;
+    }
+
+    public int getValueWithAlpha() {
+        return valueWithAlpha;
     }
 
     public String getRedHex() {
@@ -162,4 +194,7 @@ public class Colour {
         return valueHex;
     }
 
+    public String getValueHexWithAlpha() {
+        return valueHexWithAlpha;
+    }
 }

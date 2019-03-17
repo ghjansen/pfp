@@ -1,13 +1,16 @@
 package com.ghjansen.pfp.control;
 
+import com.ghjansen.pfp.component.Layer;
 import com.ghjansen.pfp.core.SketchDraw;
 import com.ghjansen.pfp.core.SketchSettings;
 import com.ghjansen.pfp.core.SketchSetup;
+import com.ghjansen.pfp.portfolio.Component;
 import com.ghjansen.pfp.portfolio.ComponentCatalog;
 
 public final class ComponentController extends Controller implements SketchSettings, SketchSetup, SketchDraw {
 
     private ComponentCatalog catalog;
+    private Layer activeLayer;
 
     public ComponentController(ComponentCatalog catalog){
         this.catalog = catalog;
@@ -15,6 +18,7 @@ public final class ComponentController extends Controller implements SketchSetti
 
     public void settings() {
         catalog.getFrame().settings();
+        addFrameComponents();
     }
 
     public void setup() {
@@ -22,7 +26,25 @@ public final class ComponentController extends Controller implements SketchSetti
     }
 
     public void draw(){
+        if(this.activeLayer != null){
+            this.activeLayer.content();
+        }
+    }
 
+    private void addFrameComponents(){
+        for(Component com : catalog.getComponentCatalog()){
+            catalog.getFrame().addChild(com);
+            com.setParent(catalog.getFrame());
+            if(com.getClass().equals(Layer.class)){
+                if(com.isEnabled() || this.activeLayer == null || this.activeLayer.isEnabled() == false){
+                    this.activeLayer = (Layer) com;
+                }
+            }
+        }
+        if(this.activeLayer != null){
+            this.activeLayer.setEnabled(true);
+            this.activeLayer.setVisible(true);
+        }
     }
 
 
