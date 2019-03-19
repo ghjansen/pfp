@@ -18,7 +18,7 @@ public final class ComponentController extends Controller implements SketchSetti
 
     public void settings() {
         catalog.getFrame().settings();
-        addFrameComponents();
+        prepareComponents();
     }
 
     public void setup() {
@@ -28,10 +28,16 @@ public final class ComponentController extends Controller implements SketchSetti
     public void draw(){
         if(this.activeLayer != null){
             this.activeLayer.content();
+        } else {
+            for(Component com : catalog.getComponentCatalog()){
+                if(com.isVisible()){
+                    com.content();
+                }
+            }
         }
     }
 
-    private void addFrameComponents(){
+    private void prepareComponents(){
         for(Component com : catalog.getComponentCatalog()){
             catalog.getFrame().addChild(com);
             com.setParent(catalog.getFrame());

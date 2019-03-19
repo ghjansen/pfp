@@ -3,7 +3,7 @@ package com.ghjansen.pfp.core;
 import com.ghjansen.pfp.control.ExceptionController;
 import com.ghjansen.pfp.exception.WrongMethodCallSequenceException;
 
-public class SketchMethodSynchronizer implements SketchSettings, SketchSetup, SketchDraw {
+public final class SketchMethodSynchronizer implements SketchSettings, SketchSetup, SketchDraw {
 
     private static final String errorMessage = "The library methods must be invoked in the sequence: \'settings()\' first, " +
             "\'setup()\' after and \'draw()\' last. Make sure that each one of the sketch methods \'settings()\', " +
