@@ -1,5 +1,6 @@
 package com.ghjansen.pfp.portfolio;
 
+import com.ghjansen.pfp.component.Colour;
 import com.ghjansen.pfp.control.ExceptionController;
 import com.ghjansen.pfp.exception.DuplicateNameException;
 import com.ghjansen.pfp.exception.ElementNotFoundException;
@@ -8,7 +9,7 @@ import java.util.HashMap;
 
 public abstract class StyleCatalog extends Catalog<HashMap<String,Element>> {
 
-    protected ColourCatalog c;
+    private ColourCatalog c;
 
     public StyleCatalog(){
         super(new HashMap<String,Element>());
@@ -34,6 +35,10 @@ public abstract class StyleCatalog extends Catalog<HashMap<String,Element>> {
     public void assemble(Catalog ... dependencies){
         this.c = (ColourCatalog) dependencies[0];
         load();
+    }
+
+    protected Colour colour(String name){
+        return c.getColour(name);
     }
 
 }

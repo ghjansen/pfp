@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
 
-    protected ColourCatalog c;
-    protected StyleCatalog s;
-    protected BehaviorCatalog b;
+    private ColourCatalog c;
+    private StyleCatalog s;
+    private BehaviorCatalog b;
     private Frame frame;
 
     public ComponentCatalog(){
@@ -45,6 +45,18 @@ public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
 
     public Frame getFrame(){
         return this.frame;
+    }
+
+    protected Colour colour(String name){
+        return c.getColour(name);
+    }
+
+    protected Element style(String name){
+        return s.getStyle(name);
+    }
+
+    protected Element behavior(String name){
+        return b.getBehavior(name);
     }
 
 }

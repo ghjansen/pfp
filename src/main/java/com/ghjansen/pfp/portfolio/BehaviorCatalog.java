@@ -1,5 +1,6 @@
 package com.ghjansen.pfp.portfolio;
 
+import com.ghjansen.pfp.component.Colour;
 import com.ghjansen.pfp.control.ExceptionController;
 import com.ghjansen.pfp.exception.DuplicateNameException;
 import com.ghjansen.pfp.exception.ElementNotFoundException;
@@ -36,6 +37,14 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
         this.c = (ColourCatalog) dependencies[0];
         this.s = (StyleCatalog) dependencies[1];
         load();
+    }
+
+    protected Colour colour(String name){
+        return c.getColour(name);
+    }
+
+    protected Element style(String name){
+        return s.getStyle(name);
     }
 
 }
