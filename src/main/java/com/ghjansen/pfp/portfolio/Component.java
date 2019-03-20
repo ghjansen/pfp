@@ -13,14 +13,25 @@ public abstract class Component extends Element {
     protected boolean isEnabled;
     protected boolean isVisible;
 
+    private Component(Component parent, ArrayList<Component> children, Point reference, boolean isAbsolute, boolean isEnabled, boolean isVisible){
+        this.parent = parent;
+        this.children = children;
+        this.reference = reference;
+        this.isAbsolute = isAbsolute;
+        this.isEnabled = isEnabled;
+        this.isVisible = isVisible;
+    }
+
     public Component(){
-        this.reference = new Point(0,0);
-        this.isAbsolute = true;
-        this.children = new ArrayList<Component>();
+        this(null, new ArrayList<Component>(), new Point(0,0), true, false, false);
     }
 
     public Component(Point reference){
-        
+        this(null, new ArrayList<Component>(), reference, true, false, false);
+    }
+
+    public Component(Point reference, boolean isAbsolute){
+        this(null, new ArrayList<Component>(), reference, isAbsolute, false, false);
     }
 
     public Component getParent() {
