@@ -9,12 +9,34 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
+        <!-- Processing does not officially supports OSX with Intel HD Graphics 3000 -->
+        <!--
         <dependency>
             <groupId>org.processing</groupId>
             <artifactId>core</artifactId>
             <version>3.3.7</version>
         </dependency>
+        -->
+        <!-- Recompiled Processing with a workaround for the issue with OSX and Intel HD Graphics 3000 -->
+        <!-- https://github.com/processing/processing/issues/4104#issuecomment-502246089 -->
+        <!-- Replace by official release if one day the following PR gets merged, or if not relevant anymore -->
+        <!-- https://github.com/processing/processing/pull/5881 -->
+        <dependency>
+            <groupId>org.processing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.5.3-269</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/dependency/core.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.jogamp.gluegen</groupId>
+            <artifactId>gluegen-rt-main</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jogamp.jogl</groupId>
+            <artifactId>jogl-all-main</artifactId>
+            <version>2.3.2</version>
+        </dependency>
     </dependencies>
-
-
 </project>
