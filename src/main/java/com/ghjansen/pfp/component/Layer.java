@@ -18,6 +18,8 @@ public class Layer extends Component {
         p.noStroke();
         if(this.colour != null){
             p.fill(this.colour.getValueWithAlpha());
+        } else {
+            p.noFill();
         }
         p.rect(0,0,p.width,p.height);
     }

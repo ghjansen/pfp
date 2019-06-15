@@ -8,39 +8,57 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
 
     protected int initialWidth;
     protected int initialHeight;
-    protected boolean isResizable;
-    protected boolean isFullScreen;
-    protected boolean is3d;
+    protected boolean resizable;
+    protected boolean fullScreen;
+    protected boolean threeDimensional;
     protected Colour background;
 
+    /**
+     * Frame as Processing's default
+     */
     public Frame(){
+        this.enabled = true;
+        this.visible = true;
         this.initialWidth = p.DEFAULT_WIDTH;
         this.initialHeight = p.DEFAULT_HEIGHT;
-        this.isResizable = false;
-        this.isFullScreen = false;
-        this.isEnabled = true;
-        this.isVisible = true;
-        this.is3d = false;
+        this.resizable = false;
+        this.fullScreen = false;
+        this.threeDimensional = false;
         this.background = new Colour(p.sketchWindowColor());
     }
 
-    public Frame(boolean isFullScreen, boolean is3d, Colour background){
-        this.isResizable = false;
-        this.isFullScreen = isFullScreen;
-        this.isEnabled = true;
-        this.isVisible = true;
-        this.is3d = is3d;
+    /**
+     * Frame as fullscreen
+     * @param threeDimensional defines the render of the frame as three dimensional
+     * @param background defines the color to fill the frame
+     */
+    public Frame(boolean threeDimensional, Colour background){
+        this.enabled = true;
+        this.visible = true;
+        this.initialWidth = p.DEFAULT_WIDTH;
+        this.initialHeight = p.DEFAULT_HEIGHT;
+        this.resizable = false;
+        this.fullScreen = true;
+        this.threeDimensional = threeDimensional;
         this.background = background;
     }
 
-    public Frame(int initialWidth, int initialHeight, boolean isResizable, boolean is3d, Colour background){
+    /**
+     * Frame as window
+     * @param initialWidth horizontal size of the frame
+     * @param initialHeight vertical size of the frame
+     * @param resizable defines the the frame capability to resize
+     * @param threeDimensional defines the render of the frame as three dimensional
+     * @param background defines the color to fill the frame
+     */
+    public Frame(int initialWidth, int initialHeight, boolean resizable, boolean threeDimensional, Colour background){
         this.initialWidth = initialWidth;
         this.initialHeight = initialHeight;
-        this.isResizable = isResizable;
-        this.isFullScreen = false;
-        this.isEnabled = true;
-        this.isVisible = true;
-        this.is3d = is3d;
+        this.resizable = resizable;
+        this.fullScreen = false;
+        this.enabled = true;
+        this.visible = true;
+        this.threeDimensional = threeDimensional;
         this.background = background;
     }
 
@@ -52,21 +70,15 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
         also p.getSurface() is null from settings(), so to avoid NPE
         p.getSurface().setResizable(boolean) will be called from setup()
          */
-        if(is3d){
-            if(isFullScreen){
+        if(threeDimensional){
+            if(fullScreen){
                 p.fullScreen(p.P3D);
-            } else if (initialWidth == 0 && initialHeight == 0) {
-                //in case the fullScreen boolean is informed as false
-                p.size(p.DEFAULT_WIDTH, p.DEFAULT_WIDTH, p.P3D);
             } else {
                 p.size(initialWidth, initialHeight, p.P3D);
             }
         } else {
-            if(isFullScreen){
+            if(fullScreen){
                 p.fullScreen();
-            } else if (initialWidth == 0 && initialHeight == 0) {
-                //in case the fullScreen boolean is informed as false
-                p.size(p.DEFAULT_WIDTH, p.DEFAULT_WIDTH);
             } else {
                 p.size(initialWidth, initialHeight);
             }
@@ -78,7 +90,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public void setup(){
-        p.getSurface().setResizable(isResizable);
+        p.getSurface().setResizable(resizable);
         p.background(background.getValue());
     }
 
@@ -99,15 +111,15 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public boolean isResizable() {
-        return isResizable;
+        return resizable;
     }
 
     public boolean isFullScreen() {
-        return isFullScreen;
+        return fullScreen;
     }
 
-    public boolean isIs3d() {
-        return is3d;
+    public boolean isThreeDimensional() {
+        return threeDimensional;
     }
 
 }

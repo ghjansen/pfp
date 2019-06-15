@@ -44,6 +44,4 @@ public final class Core implements SketchSettings, SketchSetup, SketchDraw {
         this.portfolioController.setPortfolio(portfolio);
     }
 
-
-
 }

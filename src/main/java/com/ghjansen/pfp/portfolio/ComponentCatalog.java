@@ -12,50 +12,50 @@ public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
     private BehaviorCatalog b;
     private Frame frame;
 
-    public ComponentCatalog(){
+    public ComponentCatalog() {
         super(new ArrayList<Component>());
         //if frame was not defined at load() create a default one
-        if(frame == null) {
+        if (frame == null) {
             this.frame = new Frame();
         }
     }
 
-    protected void configureFrameAsWindow(int width, int height, boolean isResizable, boolean is3d, Colour background){
-        this.frame = new Frame(width, height, isResizable, is3d, background);
+    protected void configureFrameAsWindow(int width, int height, boolean resizable, boolean threeDimensional, Colour background) {
+        this.frame = new Frame(width, height, resizable, threeDimensional, background);
     }
 
-    protected void configureFrameAsFullScreen(boolean is3d, Colour background){
-        this.frame = new Frame(true, is3d, background);
+    protected void configureFrameAsFullScreen(boolean threeDimensional, Colour background) {
+        this.frame = new Frame(threeDimensional, background);
     }
 
-    protected void addComponent(Component component){
+    protected void addComponent(Component component) {
         catalog.add(component);
     }
 
-    public ArrayList<Component> getComponentCatalog(){
+    public ArrayList<Component> getComponentCatalog() {
         return catalog;
     }
 
-    public void assemble(Catalog ... dependencies){
+    public void assemble(Catalog... dependencies) {
         this.c = (ColourCatalog) dependencies[0];
         this.s = (StyleCatalog) dependencies[1];
         this.b = (BehaviorCatalog) dependencies[2];
         load();
     }
 
-    public Frame getFrame(){
+    public Frame getFrame() {
         return this.frame;
     }
 
-    protected Colour colour(String name){
+    protected Colour colour(String name) {
         return c.getColour(name);
     }
 
-    protected Element style(String name){
+    protected Element style(String name) {
         return s.getStyle(name);
     }
 
-    protected Element behavior(String name){
+    protected Element behavior(String name) {
         return b.getBehavior(name);
     }
 

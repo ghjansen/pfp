@@ -1,13 +1,8 @@
 package com.ghjansen.pfp.test;
 
-import com.ghjansen.pfp.classic.ClassicBehaviourCatalog;
-import com.ghjansen.pfp.classic.ClassicColourCatalog;
-import com.ghjansen.pfp.classic.ClassicComponentCatalog;
-import com.ghjansen.pfp.classic.ClassicStyleCatalog;
 import com.ghjansen.pfp.component.Colour;
 import com.ghjansen.pfp.core.Core;
 import com.ghjansen.pfp.portfolio.ColourCatalog;
-import com.ghjansen.pfp.portfolio.Portfolio;
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
@@ -19,7 +14,7 @@ public class Sketch extends PApplet {
     }
 
     public void settings(){
-        //size(300,300);
+        //size(100,100,P3D);
         //System.out.println("settings: "+System.currentTimeMillis());
         //c = new Core(this);
         //Portfolio portfolio = new Portfolio() {};
@@ -29,10 +24,10 @@ public class Sketch extends PApplet {
         //portfolio.setComponentCatalog(new ClassicComponentCatalog());
         //c.setPortfolio(portfolio);
         //c.registerCatalog(new MyColourCatalog());
+
         c.settings();
+
         //size(100,100);
-
-
     }
 
     public void setup(){
@@ -40,7 +35,9 @@ public class Sketch extends PApplet {
         //System.out.println("setup: "+System.currentTimeMillis());
         //fill(120,50,240);
         //getSurface().setResizable(true);
+
         c.setup();
+
         //background(0);
     }
 
@@ -48,10 +45,12 @@ public class Sketch extends PApplet {
         //ellipse(initialWidth/2,initialHeight/2,second(),second());
         //c.drawTestForms();
         //noLoop();
+
         c.draw();
-        //translate(0,initialHeight/2, -initialHeight/4);
+
+        //translate(0,height/2, -height/4);
         //box(60,80,60);
-        //translate(initialWidth,0,-initialHeight/2);
+        //translate(width,0,-width/2);
         //box(60,80,60);
     }
 }
