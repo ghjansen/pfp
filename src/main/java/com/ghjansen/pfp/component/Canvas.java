@@ -12,7 +12,9 @@ public class Canvas extends Component {
 
     public void content() {
         p.noStroke();
-        p.fill(background.getValueWithAlpha());
+        if(background != null){
+            p.fill(background.getValueWithAlpha());
+        }
         p.rect(parent.getReference().getX(), parent.getReference().getY(), p.width, p.height);
     }
 }
