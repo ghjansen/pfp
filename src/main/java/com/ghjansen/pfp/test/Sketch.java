@@ -5,6 +5,10 @@ import com.ghjansen.pfp.core.Core;
 import com.ghjansen.pfp.portfolio.ColourCatalog;
 import processing.core.PApplet;
 
+import java.awt.desktop.QuitEvent;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
+
 public class Sketch extends PApplet {
 
     private Core c = new Core(this);
@@ -26,7 +30,6 @@ public class Sketch extends PApplet {
         //c.registerCatalog(new MyColourCatalog());
 
         c.settings();
-
         //size(100,100);
     }
 
