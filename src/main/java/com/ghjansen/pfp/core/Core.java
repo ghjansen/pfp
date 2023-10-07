@@ -1,24 +1,26 @@
 package com.ghjansen.pfp.core;
 
+import com.ghjansen.pfp.engine.Engine;
+import com.ghjansen.pfp.engine.ProcessingEngine;
 import com.ghjansen.pfp.portfolio.Catalog;
 import com.ghjansen.pfp.portfolio.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
-import processing.core.PApplet;
 
 public final class Core implements SketchSettings, SketchSetup, SketchDraw {
 
-    private static PApplet processing;
+    private static Engine engine;
     private PortfolioController portfolioController;
     private SketchMethodSynchronizer sketchMethodSynchronizer;
 
-    public Core(PApplet applet){
-        this.processing = applet;
+    public Core(){
+        engine = new ProcessingEngine(this);
         this.sketchMethodSynchronizer = new SketchMethodSynchronizer();
         this.portfolioController = new PortfolioController();
+        engine.startEngine();
     }
 
-    public static PApplet getProcessing(){
-        return processing;
+    public static Engine getEngine() {
+        return engine;
     }
 
     public void settings(){

@@ -5,7 +5,7 @@ import processing.core.PApplet;
 
 public abstract class Element {
 
-    protected PApplet p = Core.getProcessing();
+    protected PApplet p = (PApplet) Core.getEngine();
 
     public abstract void content();
 
