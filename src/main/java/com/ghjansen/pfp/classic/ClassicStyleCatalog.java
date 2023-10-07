@@ -3,25 +3,27 @@ package com.ghjansen.pfp.classic;
 import com.ghjansen.pfp.portfolio.Element;
 import com.ghjansen.pfp.portfolio.StyleCatalog;
 
+import static com.ghjansen.pfp.classic.ClassicIdentity.*;
+
 public final class ClassicStyleCatalog extends StyleCatalog {
 
     protected void load() {
-        addStyle("fillBase", new Element() {
+        addStyle(STYLE_FILL_BASE, new Element() {
             @Override
             public void content() {
-                p.fill(colour("base").getValue());
+                p.fill(colour(COLOUR_BASE).getValue());
             }
         });
-        addStyle("fillOutline", new Element() {
+        addStyle(STYLE_FILL_OUTLINE, new Element() {
             @Override
             public void content() {
-                p.fill(colour("outline").getValue());
+                p.fill(colour(COLOUR_OUTLINE).getValue());
             }
         });
-        addStyle("fillHighlight", new Element() {
+        addStyle(STYLE_FILL_HIGHLIGHT, new Element() {
             @Override
             public void content() {
-                p.fill(colour("highlight").getValue());
+                p.fill(colour(COLOUR_HIGHLIGHT).getValue());
             }
         });
     }
