@@ -58,8 +58,8 @@ public class Sketch extends PApplet {
     }
 }
 
-class MyColourCatalog extends ColourCatalog {
-    public void load(){
-        addColour("test", new Colour("#FFFFFF"));
-    }
-}
+//class MyColourCatalog extends ColourCatalog {
+//    public void load(){
+//        addColour("test", new Colour("#FFFFFF"));
+//    }
+//}

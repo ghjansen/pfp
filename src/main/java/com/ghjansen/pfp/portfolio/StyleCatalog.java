@@ -7,27 +7,27 @@ import com.ghjansen.pfp.exception.ElementNotFoundException;
 
 import java.util.HashMap;
 
-public abstract class StyleCatalog extends Catalog<HashMap<String,Element>> {
+public abstract class StyleCatalog extends Catalog<HashMap<Identity,Element>> {
 
     private ColourCatalog c;
 
     public StyleCatalog(){
-        super(new HashMap<String,Element>());
+        super(new HashMap<Identity,Element>());
     }
 
-    protected void addStyle(String name, Element element) {
-        if(catalog.containsKey(name)){
-            ExceptionController.getInstance().reportAndExit(new DuplicateNameException("The name \'"+name+"\' was already used by another element in the style portfolio"));
+    protected void addStyle(Identity identity, Element element) {
+        if(catalog.containsKey(identity)){
+            ExceptionController.getInstance().reportAndExit(new DuplicateNameException("The name \'"+identity+"\' was already used by another element in the style portfolio"));
         } else {
-            catalog.put(name, element);
+            catalog.put(identity, element);
         }
     }
 
-    public Element getStyle(String name) {
-        if(catalog.containsKey(name)){
-            return catalog.get(name);
+    public Element getStyle(Identity identity) {
+        if(catalog.containsKey(identity)){
+            return catalog.get(identity);
         } else {
-            ExceptionController.getInstance().reportAndExit(new ElementNotFoundException("No element with name \'"+name+"\' was found in the style portfolio"));
+            ExceptionController.getInstance().reportAndExit(new ElementNotFoundException("No element with name \'"+identity+"\' was found in the style portfolio"));
             return null;
         }
     }
@@ -37,8 +37,8 @@ public abstract class StyleCatalog extends Catalog<HashMap<String,Element>> {
         load();
     }
 
-    protected Colour colour(String name){
-        return c.getColour(name);
+    protected Colour colour(Identity identity){
+        return c.getColour(identity);
     }
 
 }

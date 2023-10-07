@@ -39,12 +39,12 @@ public abstract class BehaviorCatalog extends Catalog<HashMap<String,Element>> {
         load();
     }
 
-    protected Colour colour(String name){
-        return c.getColour(name);
+    protected Colour colour(Identity identity){
+        return c.getColour(identity);
     }
 
-    protected Element style(String name){
-        return s.getStyle(name);
+    protected Element style(Identity identity){
+        return s.getStyle(identity);
     }
 
 }

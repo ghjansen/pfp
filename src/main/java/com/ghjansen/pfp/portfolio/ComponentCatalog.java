@@ -47,12 +47,12 @@ public abstract class ComponentCatalog extends Catalog<ArrayList<Component>> {
         return this.frame;
     }
 
-    protected Colour colour(String name) {
-        return c.getColour(name);
+    protected Colour colour(Identity identity) {
+        return c.getColour(identity);
     }
 
-    protected Element style(String name) {
-        return s.getStyle(name);
+    protected Element style(Identity identity) {
+        return s.getStyle(identity);
     }
 
     protected Element behavior(String name) {
