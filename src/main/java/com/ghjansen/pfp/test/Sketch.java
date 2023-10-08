@@ -5,8 +5,8 @@ import com.ghjansen.pfp.core.Core;
 public class Sketch {
 
     public static void main(String args[]){
-        new Core();
-
+        Core core = Core.getInstance();
+        core.start();
     }
 
 }

@@ -2,6 +2,8 @@ package com.ghjansen.pfp.component;
 
 import com.ghjansen.pfp.portfolio.Component;
 
+import java.util.Optional;
+
 public class Layer extends Component {
 
     private Colour colour;
@@ -15,13 +17,11 @@ public class Layer extends Component {
     }
 
     public void content() {
-        p.noStroke();
-        if(this.colour != null){
-            p.fill(this.colour.getValueWithAlpha());
-        } else {
-            p.noFill();
-        }
-        p.rect(0,0,p.width,p.height);
+        noStroke();
+        noFill();
+        Optional.ofNullable(colour)
+                .ifPresent(this::fill);
+        rect(0,0,sketchWidth(), sketchHeight());
     }
 
 }

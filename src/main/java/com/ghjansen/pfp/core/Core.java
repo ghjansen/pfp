@@ -6,21 +6,35 @@ import com.ghjansen.pfp.portfolio.Catalog;
 import com.ghjansen.pfp.portfolio.Portfolio;
 import com.ghjansen.pfp.control.PortfolioController;
 
+import java.util.Objects;
+
 public final class Core implements SketchSettings, SketchSetup, SketchDraw {
 
+    private static Core instance;
     private static Engine engine;
     private PortfolioController portfolioController;
     private SketchMethodSynchronizer sketchMethodSynchronizer;
 
-    public Core(){
-        engine = new ProcessingEngine(this);
+    private Core(){
+        this.engine = new ProcessingEngine(this);
         this.sketchMethodSynchronizer = new SketchMethodSynchronizer();
         this.portfolioController = new PortfolioController();
-        engine.startEngine();
+    }
+
+    public static Core getInstance(){
+        if(Objects.isNull(instance)){
+            instance = new Core();
+        }
+        return instance;
     }
 
     public static Engine getEngine() {
+        getInstance();
         return engine;
+    }
+
+    public void start(){
+        this.engine.startEngine();
     }
 
     public void settings(){
