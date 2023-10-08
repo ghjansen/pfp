@@ -1,11 +1,14 @@
 package com.ghjansen.pfp.portfolio;
 
+import com.ghjansen.pfp.api.ProcessingBasedAPI;
 import com.ghjansen.pfp.core.Core;
-import processing.core.PApplet;
+import com.ghjansen.pfp.engine.ProcessingEngine;
 
-public abstract class Element {
+public abstract class Element extends ProcessingBasedAPI {
 
-    protected PApplet p = (PApplet) Core.getEngine();
+    protected Element() {
+        super((ProcessingEngine) Core.getEngine());
+    }
 
     public abstract void content();
 

@@ -11,10 +11,10 @@ public class Canvas extends Component {
     }
 
     public void content() {
-        p.noStroke();
+        noStroke();
         if(background != null){
-            p.fill(background.getValueWithAlpha());
+            fill(background);
         }
-        p.rect(parent.getReference().getX(), parent.getReference().getY(), p.width, p.height);
+        rect(parent.getReference().getX(), parent.getReference().getY(), sketchWidth(), sketchHeight());
     }
 }

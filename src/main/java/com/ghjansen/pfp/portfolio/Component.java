@@ -15,6 +15,7 @@ public abstract class Component extends Element {
     protected boolean visible;
 
     private Component(Component parent, List<Component> children, Point reference, boolean absolute, boolean enabled, boolean visible){
+        super();
         this.parent = parent;
         this.children = children;
         this.reference = reference;

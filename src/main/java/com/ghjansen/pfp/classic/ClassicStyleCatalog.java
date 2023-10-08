@@ -11,19 +11,19 @@ public final class ClassicStyleCatalog extends StyleCatalog {
         addStyle(STYLE_FILL_BASE, new Element() {
             @Override
             public void content() {
-                p.fill(colour(COLOUR_BASE).getValue());
+                fill(colour(COLOUR_BASE));
             }
         });
         addStyle(STYLE_FILL_OUTLINE, new Element() {
             @Override
             public void content() {
-                p.fill(colour(COLOUR_OUTLINE).getValue());
+                fill(colour(COLOUR_OUTLINE));
             }
         });
         addStyle(STYLE_FILL_HIGHLIGHT, new Element() {
             @Override
             public void content() {
-                p.fill(colour(COLOUR_HIGHLIGHT).getValue());
+                fill(colour(COLOUR_HIGHLIGHT));
             }
         });
     }

@@ -19,12 +19,12 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     public Frame(){
         this.enabled = true;
         this.visible = true;
-        this.initialWidth = p.DEFAULT_WIDTH;
-        this.initialHeight = p.DEFAULT_HEIGHT;
+        this.initialWidth = defaultWidth();
+        this.initialHeight = defaultHeight();
         this.resizable = false;
         this.fullScreen = false;
         this.threeDimensional = false;
-        this.background = new Colour(p.sketchWindowColor());
+        this.background = new Colour(sketchWindowColor());
     }
 
     /**
@@ -35,8 +35,8 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     public Frame(boolean threeDimensional, Colour background){
         this.enabled = true;
         this.visible = true;
-        this.initialWidth = p.DEFAULT_WIDTH;
-        this.initialHeight = p.DEFAULT_HEIGHT;
+        this.initialWidth = defaultWidth();
+        this.initialHeight = defaultHeight();
         this.resizable = false;
         this.fullScreen = true;
         this.threeDimensional = threeDimensional;
@@ -72,15 +72,15 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
          */
         if(threeDimensional){
             if(fullScreen){
-                p.fullScreen(p.P3D);
+                fullScreen(p3d());
             } else {
-                p.size(initialWidth, initialHeight, p.P3D);
+                size(initialWidth, initialHeight, p3d());
             }
         } else {
             if(fullScreen){
-                p.fullScreen();
+                fullScreen();
             } else {
-                p.size(initialWidth, initialHeight);
+                size(initialWidth, initialHeight);
             }
         }
     }
@@ -90,8 +90,8 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public void setup(){
-        p.getSurface().setResizable(resizable);
-        p.background(background.getValue());
+        setResizable(resizable);
+        background(background.getValue());
     }
 
     public int getInitialWidth() {
@@ -99,7 +99,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public int getCurrentWidth(){
-        return p.width;
+        return sketchWidth();
     }
 
     public int getInitialHeight() {
@@ -107,7 +107,7 @@ public class Frame extends Component implements SketchSettings, SketchSetup {
     }
 
     public int getCurrentHeight(){
-        return p.height;
+        return sketchHeight();
     }
 
     public boolean isResizable() {

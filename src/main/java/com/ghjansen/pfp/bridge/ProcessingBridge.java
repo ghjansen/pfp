@@ -1,18 +1,32 @@
 package com.ghjansen.pfp.bridge;
 
-import processing.core.PApplet;
+import com.ghjansen.pfp.engine.ProcessingEngine;
 
-public class ProcessingBridge implements Bridge{
+public abstract class ProcessingBridge implements Bridge{
 
-    private final PApplet engine;
+    private final ProcessingEngine engine;
 
-    public ProcessingBridge(PApplet engine) {
+    protected ProcessingBridge(ProcessingEngine engine) {
         this.engine = engine;
+    }
+
+    protected ProcessingEngine getEngine(){
+        return this.engine;
     }
 
     @Override
     public void background(int rgb) {
         this.engine.background(rgb);
+    }
+
+    @Override
+    public int defaultWidth() {
+        return ProcessingEngine.DEFAULT_WIDTH;
+    }
+
+    @Override
+    public int defaultHeight() {
+        return ProcessingEngine.DEFAULT_HEIGHT;
     }
 
     @Override
@@ -41,6 +55,11 @@ public class ProcessingBridge implements Bridge{
     }
 
     @Override
+    public String p3d() {
+        return this.engine.P3D;
+    }
+
+    @Override
     public void rect(float a, float b, float c, float d) {
         this.engine.rect(a, b, c, d);
     }
@@ -58,5 +77,20 @@ public class ProcessingBridge implements Bridge{
     @Override
     public void setResizable(boolean resizable) {
         this.engine.getSurface().setResizable(resizable);
+    }
+
+    @Override
+    public int sketchWidth() {
+        return this.engine.sketchWidth();
+    }
+
+    @Override
+    public int sketchHeight() {
+        return this.engine.sketchHeight();
+    }
+
+    @Override
+    public int sketchWindowColor() {
+        return this.engine.sketchWindowColor();
     }
 }
